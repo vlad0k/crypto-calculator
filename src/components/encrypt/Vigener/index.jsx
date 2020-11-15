@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@material-ui/core/TextField";
-import { useStyles } from "../../styles";
-import { vigenerEncrypt } from "../../utils/encript";
+import { useStyles } from "../../../styles";
+import { vigenerEncrypt } from "../../../utils/encript";
 
 const Vigener = ({
   message,

@@ -4,9 +4,10 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import { englishAlphabet, russianAlphabet } from "../../alphabet";
-import { substitutionEncrypt } from "../../utils/encript";
-import { useStyles } from "../../styles";
+import { englishAlphabet, russianAlphabet } from "../../../alphabet";
+import { substitutionEncrypt } from "../../../utils/encript";
+import { useStyles } from "../../../styles";
+import { substitutionDecrypt } from "../../../utils/decrypt";
 
 const Substitution = ({
   message,
@@ -19,7 +20,7 @@ const Substitution = ({
   const styles = useStyles();
 
   useEffect(() => {
-    handleResultChange(substitutionEncrypt(message, shift, currentAbt));
+    handleResultChange(substitutionDecrypt(message, shift, currentAbt));
   }, [message, currentAbt, shift]);
 
   return (

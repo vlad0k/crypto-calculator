@@ -24,6 +24,7 @@ export const useStyles = makeStyles({
     height: 128,
   },
   result: {
-    height: 64,
+    minHeight: 64,
+    overflowX: "auto",
   },
 });

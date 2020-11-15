@@ -1,7 +1,5 @@
 import { englishAlphabet } from "../alphabet";
-
-const alphabetContainsSymbol = (symbol = "", alphabet = englishAlphabet) =>
-  alphabet.indexOf(symbol) === -1 ? false : true;
+import { alphabetContainsSymbol } from "./alphabetContainsSymbol";
 
 export const substitutionEncrypt = (message = "", shift = 0, alphabet = []) => {
   const messageCharArray = message.toLowerCase().split("");
@@ -60,7 +58,7 @@ export const vigenerEncrypt = (
     .toUpperCase();
 };
 
-const streamingEncrypt = (
+export const streamingEncrypt = (
   message = [2, 7, 9, "D", "A", 3, 8, "D", "C", 1, "A"],
   key = [7, 9, "A", 3, 8, 4, "C", "B", 1, 5, 4]
 ) => {
@@ -72,12 +70,9 @@ const streamingEncrypt = (
     return "";
   }
 
-  return message
-    .map((m, index) =>
-      ((parseInt(m, 16) + parseInt(key[index], 16)) % 16).toString(16)
-    )
-    .join(", ")
-    .toUpperCase();
+  const result = message.map((m, index) =>
+    ((parseInt(m, 16) + parseInt(key[index], 16)) % 16).toString(16)
+  );
+  console.log(result);
+  return result.includes("NaN") ? "" : result.join(", ").toUpperCase();
 };
-
-console.log(streamingEncrypt());
